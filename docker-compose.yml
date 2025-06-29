@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+
+frontend:
+  build:
+    context: .
+  networks: 
+    - medianetwork
+  container_name: frontendcon  
+  depends_on:
+    - backend
+  ports:
+    - '5173:5173'
+
+      
+backend:
+  build:
+    context: .
+  networks: 
+    - medianetwork
+  container_name: backendcon  
+  depends_on:
+    - database
+  ports:
+    - '4000:4000'
+  env_file:
+    - './env'  
+   
+
+database:
+  image: mongo
+  container_name: mongocon
+  ports:
+  - '27017:27017'
+  networks: 
+    - medianetwork
+
+
+networks:
+  medianetwork:
+   
