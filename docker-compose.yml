@@ -24,6 +24,7 @@ services:
       - './Backend/.env'
     networks:
       - medianetwork
+    restart: always
 
   database:
     image: mongo
