@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
 
-frontend:
+ frontend:
   build:
     context: .
   networks: 
@@ -14,7 +14,7 @@ frontend:
     - '5173:5173'
 
       
-backend:
+ backend:
   build:
     context: .
   networks: 
@@ -28,7 +28,7 @@ backend:
     - './env'  
    
 
-database:
+ database:
   image: mongo
   container_name: mongocon
   ports:
